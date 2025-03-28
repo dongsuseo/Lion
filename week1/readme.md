@@ -38,3 +38,70 @@ f1함수가 끝이 나면 메모리에서 제거돼야하지만 f3함수가 전�
  require/exports를 사용하여 모듈화 (동기식)   
  * **ES6모듈**   
  import를 사용하여 모듈화 (비동기식)   
+***
+## 2025-03-27
+### - 함수(Function)와 생성자(Constructor)의 차이   
+#### 함수 ( Function ) 
+```
+function Exam() {
+    kor = 1;
+    eng = 3;
+    math = 2;
+
+    console.log(kor, eng, math);
+}
+
+let exam1 = Exam(); // ✅ 함수 호출
+console.log(exam1); // undefined
+console.log(window.kor, window.eng, window.math); // 1 3 2 (전역 변수로 등록됨)
+```
+### **📌 특징**
+
+✔ `Exam()`을 함수로 실행하면, **`this`가 글로벌 객체(`window` 또는 `globalThis`)를 가리킴**
+
+✔ `kor`, `eng`, `math`는 **명시적으로 `var`, `let`, `const` 없이 선언되었으므로 전역 변수로 등록됨**
+
+✔ `exam1`에 아무것도 반환되지 않으므로 `undefined`가 됨
+   
+#### 생성자 (Constructor)
+```
+function Exam() {
+    this.kor = 1;
+    this.eng = 3;
+    this.math = 2;
+
+    console.log(this.kor, this.eng, this.math);
+}
+
+let exam2 = new Exam(); // ✅ 생성자 호출
+console.log(exam2); // Exam { kor: 1, eng: 3, math: 2 }
+```
+### **📌 특징**
+✔ `new Exam()`을 실행하면, **새로운 객체(`this`)가 생성됨**
+
+✔ `this.kor`, `this.eng`, `this.math`는 **객체의 프로퍼티로 등록됨**
+
+✔ `exam2`에는 **객체가 반환되므로 속성(`kor`, `eng`, `math`)을 사용할 수 있음**
+   
+### - Has-A 상속 | Is-A 상속
+#### Has-A 상속
+> "팔, 다리, 눈, 펀치 기능을 하나씩 가져와서 조합하는 방식"
+> 
+> 
+> (여러 개의 개별적인 기능을 가져와서 조합)
+>
+#### Is-A 상속
+> "길 가다가 눈만 붙이면 되는 로봇을 발견해서, 로봇을 그대로 데려와서 눈만 붙이는 방식"
+> 
+> (이미 존재하는 로봇 클래스를 상속받아 확장)
+>
+   
+## **🎯 언제 `Has-A`를, 언제 `Is-A`를 사용할까?**
+
+✅ **재사용성과 확장성을 고려하면 `Has-A`(구성) 방식이 더 유연함**
+
+✅ **부모-자식 관계가 명확할 때(`Is-A` 관계가 자연스러울 때)만 상속을 사용**
+
+✅ **대부분의 경우, `Has-A`(구성) 방식이 유지보수에 유리**
+
+✅ **JavaScript, React 등에서는 `Has-A` 방식(Composition)을 더 선호** 🚀
