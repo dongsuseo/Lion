@@ -106,3 +106,26 @@
 ### - DTO (Data Transfer Object)
 
     프론트가 데이터를 가져와서 사용하기만 하면 되게 변환된 데이터 형태
+
+## 2025-04-03
+
+### -scss란
+
+    css의 추가 기능 확장판
+    nest형태의 css를 사용하면 돌아가니는 하지만 webpack에서 오류가 난다.
+    그래서 scss를 설치하고 사용 할 수 있다.
+
+### -export 와 export default의 차이
+
+-   export  
+     하나의 파일에서 여러개의 클래스를 export할 수 있다.  
+     import받을때 {}를 사용하여 어떤 클래스를 가져올지 명명해줘야 한다
+-   export default  
+     하나의 파일에서 하나의 클래스만 export가 가능하다  
+     import받을떄 {}없이 가져온다.
+
+### useSearchParams
+
+    query string을 어떤 값을 설정할지 정하면서 해당하는 값을 가져 올수도 있다.
+
+![alt text](image-1.png)
