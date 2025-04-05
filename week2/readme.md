@@ -24,17 +24,17 @@
 
     E(ntity)R(elationship) 다이어그램을 사용
 
--   Entity  
-     데이터를 저장하는 하나의 단위
+- Entity  
+   데이터를 저장하는 하나의 단위
 
-    다이어그램에서는 네모로 표현됨
+  다이어그램에서는 네모로 표현됨
 
--   Relationship  
-     개체 간의 연관성을 정의하는 요소
-    문장으로 말할 때 보통 동사역할을 한다
-    회원이 메뉴를 **주문**한다 => 주문
+- Relationship  
+   개체 간의 연관성을 정의하는 요소
+  문장으로 말할 때 보통 동사역할을 한다
+  회원이 메뉴를 **주문**한다 => 주문
 
-    다이어그램에서는 마름모로 표현된다
+  다이어그램에서는 마름모로 표현된다
 
 ### - 논리적 설계
 
@@ -109,23 +109,50 @@
 
 ## 2025-04-03
 
-### -scss란
+### - scss란
 
     css의 추가 기능 확장판
-    nest형태의 css를 사용하면 돌아가니는 하지만 webpack에서 오류가 난다.
+    nest형태의 css를 사용하면 돌아가기는 하지만 webpack에서 오류가 난다.
     그래서 scss를 설치하고 사용 할 수 있다.
 
-### -export 와 export default의 차이
+### - export 와 export default의 차이
 
--   export  
-     하나의 파일에서 여러개의 클래스를 export할 수 있다.  
-     import받을때 {}를 사용하여 어떤 클래스를 가져올지 명명해줘야 한다
--   export default  
-     하나의 파일에서 하나의 클래스만 export가 가능하다  
-     import받을떄 {}없이 가져온다.
+- export  
+   하나의 파일에서 여러개의 클래스를 export할 수 있다.  
+   import받을때 {}를 사용하여 어떤 클래스를 가져올지 명명해줘야 한다
+- export default  
+   하나의 파일에서 하나의 클래스만 export가 가능하다  
+   import받을떄 {}없이 가져온다.
 
-### useSearchParams
+### - useSearchParams
 
     query string을 어떤 값을 설정할지 정하면서 해당하는 값을 가져 올수도 있다.
 
 ![alt text](image-1.png)
+
+### - 일반 function과 arrow function의 차이
+
+    1. this 바인딩 방식
+
+        일반 함수의 경우 호출한 주체에 따라 바뀐다.
+        arrow function은 자신을 둘러싼 외부 스코프의 this를
+        고정해서 사용한다.
+        즉 항상 상위 컨텍스트의 this를 사용함
+
+    2. arguments 객체
+
+        일반 함수는 모든 전달 인자를 참조할 수 있다.
+        arrow function은 arguments가 존재하지 않는다.
+
+    3. 생성자 함수 사용 여부
+
+        arrow function은 new 키워드로 인스턴스를 생성할 수 없다.
+
+### 언제 어떤걸 사용해야 할까?
+
+    - arrow function
+     함수가 단순하고 한줄 짜리 표현일 떄
+
+    - 일반 함수
+     this를 명확히 써야 할 때
+     arguments를 참조해야 할 때
